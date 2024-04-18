@@ -6,7 +6,7 @@ import router from "../routes/Router"
 
 
 function App() {
-    console.log("envenv", import.meta.env)
+    // console.log("envenv", import.meta.env)
     return (
         <div>
             <AuthProvider>

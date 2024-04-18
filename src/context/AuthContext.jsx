@@ -46,9 +46,6 @@ export function AuthProvider({ children }) {
         console.log({googleUSer})
     }
 
-    function updateUserProfile(displayName,photoUrl){
-
-    }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth,
