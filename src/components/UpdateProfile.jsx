@@ -32,7 +32,7 @@ export default function UpdateProfile() {
 
     Promise.all(promises)
       .then(() => {
-        navigate("/notes")
+        navigate("/")
       })
       .catch(() => {
         setError("Failed to update account")
@@ -82,7 +82,7 @@ export default function UpdateProfile() {
           </Card.Body>
         </Card>
         <div className="w-100 text-center mt-2">
-          <Link to="/notes">Cancel</Link>
+          <Link to="/">Cancel</Link>
         </div>
       </AuthUiLayout>
     </>

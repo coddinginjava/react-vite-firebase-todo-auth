@@ -22,7 +22,7 @@ export default function Login() {
             setError("")
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value)
-            navigate("/notes")
+            navigate("/")
         } catch (e) {
             console.error(e)
             setError("Failed to log in")
@@ -34,7 +34,7 @@ export default function Login() {
     const signInWithGoogle = async () => {
         try {
             await signInUserWithGoogle()
-            navigate("/notes")
+            navigate("/")
         } catch (e) {
             console.error(e)
         }

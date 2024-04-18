@@ -28,7 +28,7 @@ export default function Signup() {
       setError("")
       setLoading(true)
       await signup(emailRef.current.value.trim(), passwordRef.current.value.trim(), displayNameRef.current.value.trim())
-      navigate("/notes")
+      navigate("/")
     } catch (e) {
       console.error(e)
       console.error(e.message)
@@ -41,7 +41,7 @@ export default function Signup() {
   const signInWithGoogle = async () => {
     try {
       await signInUserWithGoogle()
-      navigate("/notes")
+      navigate("/")
     } catch (e) {
       console.error(e)
     }

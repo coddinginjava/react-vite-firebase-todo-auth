@@ -15,9 +15,9 @@ const NotesModule = () => {
 
 
     const handleDeleteNote = (id) => {
-        // deleteTodo(id).then(() => setNotes(pn => pn.filter(n => n.id !== id)));
-        deleteTodo(id).then(() => console.log("deleted successfully id : " + id)).catch(e => console.log("deleted error: " + e))
-        setNotes(pn => pn.filter(n => n.id !== id));
+        deleteTodo(id).then(() => setNotes(pn => pn.filter(n => n.id !== id)));
+        // deleteTodo(id).then(() => console.log("deleted successfully id : " + id)).catch(e => console.log("deleted error: " + e))
+        // setNotes(pn => pn.filter(n => n.id !== id));
     }
 
     const handleUpdateNotes = ({id, completed}) => {
@@ -26,14 +26,14 @@ const NotesModule = () => {
             return
         filterNote[0].completed = completed;
 
-        updateTodo(filterNote[0])
-            .then(() => console.log("Updates notes with id: " + id))
-            .catch(e => console.error(e));
-        // updateTodo(filterNote[0]).then(() => setNotes(pn => pn.map(n => {
-        //     if(n===id)
-        //         return {...n, completed: completed};
-        //     else return n;
-        // })));
+        // updateTodo(filterNote[0])
+        //     .then(() => console.log("Updates notes with id: " + id))
+        //     .catch(e => console.error(e));
+        updateTodo(filterNote[0]).then(() => setNotes(pn => pn.map(n => {
+            if(n===id)
+                return {...n, completed: completed};
+            else return n;
+        })));
         setNotes(pn => pn.map(n => {
             if (n === id)
                 return {...n, completed: completed};
@@ -63,9 +63,9 @@ const NotesModule = () => {
             id: uuidv4(),
 
         }
-        // addTodo(newNoteBody).then(() => setNotes(prev => [...prev, newNoteBody]));
-        addTodo(newNoteBody).then(() => console.log("added successfully with id : " + newNoteBody.id)).catch(e => console.error(e));
-        setNotes(prev => [...prev, newNoteBody])
+        addTodo(newNoteBody).then(() => setNotes(prev => [...prev, newNoteBody]));
+        // addTodo(newNoteBody).then(() => console.log("added successfully with id : " + newNoteBody.id)).catch(e => console.error(e));
+        // setNotes(prev => [...prev, newNoteBody])
         setNewNotes("")
     }
 
