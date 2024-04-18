@@ -32,7 +32,7 @@ export default function UpdateProfile() {
 
     Promise.all(promises)
       .then(() => {
-        navigate("/")
+        navigate("/notes")
       })
       .catch(() => {
         setError("Failed to update account")
@@ -75,14 +75,14 @@ export default function UpdateProfile() {
                     placeholder="Leave blank to keep the same"
                 />
               </Form.Group>
-              <Button disabled={loading} className="w-100" type="submit">
+              <Button disabled={loading} className="w-100 mt-4" type="submit">
                 Update
               </Button>
             </Form>
           </Card.Body>
         </Card>
         <div className="w-100 text-center mt-2">
-          <Link to="/">Cancel</Link>
+          <Link to="/notes">Cancel</Link>
         </div>
       </AuthUiLayout>
     </>

@@ -3,6 +3,8 @@ import {Form, Button, Card, Alert} from "react-bootstrap"
 import {useAuth} from "../context/AuthContext"
 import {Link, useNavigate} from "react-router-dom"
 import AuthUiLayout from "./AuthUiLayout.jsx";
+import Image from "react-bootstrap/Image";
+import GLogo from "../asset/glogo.png";
 
 export default function Login() {
     const emailRef = useRef()
@@ -70,8 +72,8 @@ export default function Login() {
 
                 <Card className="mt-5">
                     <Card.Body>
-                        <Button onClick={signInWithGoogle} className="w-100" type="button">
-                            Sign in With Google
+                        <Button onClick={signInWithGoogle} className="w-100 bg-light-subtle " style={{color : "black", fontWeight : "500"}} type="button">
+                            Log in With <Image height={20} width={20} src={GLogo} />
                         </Button>
                     </Card.Body>
                 </Card>

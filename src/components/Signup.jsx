@@ -3,13 +3,16 @@ import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../context/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
 import AuthUiLayout from "./AuthUiLayout.jsx";
+import Image from "react-bootstrap/Image";
+import GLogo from "../asset/glogo.png";
+
 
 export default function Signup() {
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
   const displayNameRef = useRef()
-  const { signup } = useAuth()
+  const { signup, signInUserWithGoogle } = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
@@ -34,6 +37,16 @@ export default function Signup() {
 
     setLoading(false)
   }
+
+  const signInWithGoogle = async () => {
+    try {
+      await signInUserWithGoogle()
+      navigate("/notes")
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
 
   return (
     <>
@@ -68,6 +81,16 @@ export default function Signup() {
         <div className="w-100 text-center mt-2">
           Already have an account? <Link to="/login">Log In</Link>
         </div>
+
+        <Card className="mt-5">
+          <Card.Body>
+            <Button onClick={signInWithGoogle} className="w-100 bg-light-subtle" style={{color : "black", fontWeight : "500"}} type="button">
+              Sign in With <Image height={20} width={20} src={GLogo} />
+            </Button>
+          </Card.Body>
+        </Card>
+
+
       </AuthUiLayout>
 
     </>
